@@ -61,7 +61,7 @@ static NSString *const kYOSUserAgentPrefix = @"YosCocoaSdk/0.5";
 	
 	NSData *connectionResponseData = [NSURLConnection sendSynchronousRequest:urlRequest returningResponse:&urlResponse error:&rspError];
 	
-	[rspError autorelease];	
+	// [rspError autorelease]; over-releasing the error object
 	[connectionResponseData autorelease];
 	
 	YOSResponseData *serviceResponseData = [YOSResponseData responseWithData:connectionResponseData 
